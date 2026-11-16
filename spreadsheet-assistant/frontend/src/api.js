@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const API_HOST = import.meta.env.VITE_API_URL
+  ? import.meta.env.VITE_API_URL.replace(/\/$/, "")
+  : "";
+
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: `${API_HOST}/api`,
 });
 
 export async function createSpreadsheet(payload) {
